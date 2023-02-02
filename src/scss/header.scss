@@ -2,22 +2,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
   margin-top: 25px;
   &__logo {
+    display: flex;
+    margin-right: 80px;
     img {
       width: 20px;
     }
+    h2 {
+      color: $bg-red;
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-left: 15px;
+    }
   }
-  h2 {
-    color: $bg-red;
-    font-size: 14px;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
+
   &__navlist {
     display: flex;
+    justify-content: space-around;
     list-style-type: none;
+    margin-right: 90px;
     .header__item {
       cursor: pointer;
       padding: 17.5px 17.5px;
@@ -42,10 +47,10 @@
       padding-bottom: 2px;
     }
     &__field::-webkit-input-placeholder {
-      color: red;
+      color: $bg-red;
     }
     &__field::-moz-placeholder {
-      color: red;
+      color: $bg-red;
     }
     &__search {
       position: absolute;
