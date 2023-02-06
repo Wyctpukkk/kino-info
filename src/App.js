@@ -1,14 +1,31 @@
 import './App.scss';
-import avengers from './assets/img/theavenger.jpg';
-import plus from './assets/img/plus.svg';
-import play from './assets/img/play-button.svg';
+import { useEffect, useState } from 'react';
+import { Header } from './components/Header';
+import background from './assets/img/back1.png';
+import { ItemMain } from './components/ItemMain';
+import { Slider } from './components/Slider';
 import { ItemWest } from './components/ItemWest';
 import { ItemEast } from './components/ItemEast';
-import background from './assets/img/back1.png';
-import { Header } from './components/Header';
-import { Slider } from './components/Slider';
+import { Trends } from './components/Trends';
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      // 'https://api.kinopoisk.dev/movie?field=rating.kp&search=9-10&field=year&search=2010-2022&token=QKFDB6E-9SBMD5Z-GJ1MT7Y-GM4VY0F',
+      'https://6395c5a790ac47c680731729.mockapi.io/films',
+      {
+        method: 'GET',
+      }
+    )
+      .then((res) => res.json())
+      // .then((json) => setItems(json.docs))
+      .then((json) => setItems(json))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(items);
+
   return (
     <div className="App">
       <div
@@ -20,44 +37,41 @@ function App() {
         }}
       >
         <Header />
-        <div className="container">
-          <section className="first-block">
-            <article className="first-left">
-              <div className="first-left__category">
-                <button className="first-left__category__year">2012</button>
-                <button className="first-left__category__type">action</button>
-                <button className="first-left__category__type">
-                  adventure
-                </button>
-              </div>
-              <h2>the avengers</h2>
-              <p>
-                When Thor's evil brother, Loki (Tom Hiddleston), gains access to
-                the unlimited power of the energy cube called the Tesseract,
-                Nick Fury (Samuel L. Jackson), director of S.H.I.E.L.D.,
-                initiates a superhero recruitment effort to defeat the
-                unprecedented threat to Earth.
-              </p>
-              <div className="first-left__buttons">
-                <button className="first-left__buttons__play">
-                  Play trailer
-                  <img src={play} alt="play" />
-                </button>
-                <button className="first-left__buttons__add">
-                  add to list
-                  <img src={plus} alt="plus" />
-                </button>
-              </div>
-            </article>
-            <article className="first-right">
-              <img src={avengers} alt="poster" />
-            </article>
-          </section>
-        </div>
+        {items.map((obj, index) => {
+          return index === 7 ? (
+            <ItemMain
+              url={obj.poster.url}
+              id={obj.id}
+              name={obj.name}
+              description={obj.description}
+              year={obj.year}
+            />
+          ) : (
+            ''
+          );
+        })}
       </div>
       <Slider />
-      <ItemWest />
-      <ItemEast />
+      {items.map((obj, index) => {
+        return index % 2 ? (
+          <ItemWest
+            url={obj.poster.url}
+            id={obj.id}
+            name={obj.name}
+            description={obj.description}
+            year={obj.year}
+          />
+        ) : (
+          <ItemEast
+            url={obj.poster.url}
+            id={obj.id}
+            name={obj.name}
+            description={obj.description}
+            year={obj.year}
+          />
+        );
+      })}
+      <Trends />
     </div>
   );
 }

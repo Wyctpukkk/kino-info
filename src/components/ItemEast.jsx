@@ -1,27 +1,27 @@
 import React from 'react';
-import avengers from '../assets/img/theavenger.jpg';
 import plus from '../assets/img/plus.svg';
 import play from '../assets/img/play-button.svg';
-import background1 from '../assets/img/background1.png';
 
-export const ItemEast = () => {
+export const ItemEast = ({ url, id, name, description, year }) => {
   return (
     <div
-      style={{
-        zIndex: -2,
-        background: `linear-gradient(  
-          hsla(210, 85%, 5%, 0.952),20%,hsla(210, 85%, 5%, 0.202), 80%,hsla(210, 85%, 5%, 0.952)),
-          url(${background1})`,
-      }}
+    // style={{
+    //   zIndex: -2,
+    //   background: `linear-gradient(
+    //     hsla(210, 85%, 5%, 0.952),20%,hsla(210, 85%, 5%, 0.202), 80%,hsla(210, 85%, 5%, 0.952)),
+    //     url(${background1})`,
+    // }}
     >
       <div className="container">
         <section className="item-east-block">
           <article className="item-east-left">
-            <img src={avengers} alt="poster" />
+            <img src={url} alt="poster" />
           </article>
           <article className="item-east-right">
             <div className="item-east-right__category">
-              <button className="item-east-right__category__year">2012</button>
+              <button className="item-east-right__category__year">
+                {year}
+              </button>
               <button className="item-east-right__category__type">
                 action
               </button>
@@ -29,14 +29,8 @@ export const ItemEast = () => {
                 adventure
               </button>
             </div>
-            <h2>the avengers</h2>
-            <p>
-              When Thor's evil brother, Loki (Tom Hiddleston), gains access to
-              the unlimited power of the energy cube called the Tesseract, Nick
-              Fury (Samuel L. Jackson), director of S.H.I.E.L.D., initiates a
-              superhero recruitment effort to defeat the unprecedented threat to
-              Earth.
-            </p>
+            <h2>{name}</h2>
+            <p>{description}</p>
             <div className="item-east-right__buttons">
               <button className="item-east-right__buttons__play">
                 Play trailer
