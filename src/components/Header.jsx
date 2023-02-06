@@ -4,7 +4,7 @@ import search from '../assets/img/search.svg';
 
 export const Header = () => {
   return (
-    <div className="container">
+    <section className="container">
       <header className="header">
         <div className="header__logo">
           <img src={logo} alt="logo" />
@@ -34,6 +34,6 @@ export const Header = () => {
         <button className="header__login">Login</button>
         <button className="header__sign">Sign Up</button>
       </header>
-    </div>
+    </section>
   );
 };

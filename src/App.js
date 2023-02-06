@@ -7,6 +7,7 @@ import { Slider } from './components/Slider';
 import { ItemWest } from './components/ItemWest';
 import { ItemEast } from './components/ItemEast';
 import { Trends } from './components/Trends';
+import { Footer } from './components/Footer';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -72,6 +73,7 @@ function App() {
         );
       })}
       <Trends />
+      <Footer />
     </div>
   );
 }

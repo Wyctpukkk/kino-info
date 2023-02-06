@@ -6,7 +6,7 @@ import star from '../assets/img/star.svg';
 
 export const Trends = () => {
   return (
-    <div className="container">
+    <section className="container">
       <p className="cards__title">Trends now</p>
       <ul className="cards__list">
         <li className="cards__item">
@@ -200,6 +200,6 @@ export const Trends = () => {
           </div>
         </li>
       </ul>
-    </div>
+    </section>
   );
 };
