@@ -1,48 +1,25 @@
 import './App.scss';
-import logo from './assets/img/logo.svg';
-import search from './assets/img/search.svg';
 import avengers from './assets/img/theavenger.jpg';
 import plus from './assets/img/plus.svg';
 import play from './assets/img/play-button.svg';
-import slider from './assets/img/slider.jpg';
-import leftArrow from './assets/img/left_arrow.svg';
-import rightArrow from './assets/img/right_arrow.svg';
+import { ItemWest } from './components/ItemWest';
+import { ItemEast } from './components/ItemEast';
+import background from './assets/img/back1.png';
+import { Header } from './components/Header';
+import { Slider } from './components/Slider';
 
 function App() {
   return (
     <div className="App">
-      <div className="first-background">
-        <div className="container">
-          <header className="header">
-            <div className="header__logo">
-              <img src={logo} alt="logo" />
-              <h2>Kallyas</h2>
-            </div>
-            <ul className="header__navlist">
-              <li className="header__item">
-                <a className="header__text">Homepage</a>
-              </li>
-              <li className="header__item">
-                <a className="header__text">Serials</a>
-              </li>
-              <li className="header__item">
-                <a className="header__text">Movies</a>
-              </li>
-              <li className="header__item">
-                <a className="header__text">Favorites</a>
-              </li>
-              <li className="header__item">
-                <a className="header__text">My List</a>
-              </li>
-            </ul>
-            <div className="input">
-              <input className="input__field" placeholder="Search..."></input>
-              <img className="input__search" src={search} alt="search" />
-            </div>
-            <button className="header__login">Login</button>
-            <button className="header__sign">Sign Up</button>
-          </header>
-        </div>
+      <div
+        style={{
+          zIndex: -2,
+          background: `linear-gradient(  
+            hsla(210, 85%, 5%, 0.952),20%,hsla(210, 85%, 5%, 0.202), 80%,hsla(210, 85%, 5%, 0.952)),
+            url(${background})`,
+        }}
+      >
+        <Header />
         <div className="container">
           <section className="first-block">
             <article className="first-left">
@@ -78,40 +55,9 @@ function App() {
           </section>
         </div>
       </div>
-      <section className="slider">
-        <h2 className="slider__title">Popular serials</h2>
-        <article className="slider__block">
-          <button className="slider__back">
-            <img src={leftArrow} />
-          </button>
-          <ul className="slider__list">
-            <li className="slider__item first">
-              <img className="slider__content" src={slider} />
-            </li>
-            <li className="slider__item">
-              <img className="slider__content" src={slider} />
-            </li>
-            <li className="slider__item">
-              <img className="slider__content" src={slider} />
-            </li>
-            <li className="slider__item">
-              <img className="slider__content" src={slider} />
-            </li>
-            <li className="slider__item">
-              <img className="slider__content" src={slider} />
-            </li>
-            <li className="slider__item">
-              <img className="slider__content" src={slider} />
-            </li>
-            <li className="slider__item last">
-              <img className="slider__content" src={slider} />
-            </li>
-          </ul>
-          <button className="slider__next">
-            <img src={rightArrow} />
-          </button>
-        </article>
-      </section>
+      <Slider />
+      <ItemWest />
+      <ItemEast />
     </div>
   );
 }

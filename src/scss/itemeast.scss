@@ -1,12 +1,13 @@
-.first-block {
+.item-east-block {
   position: relative;
   display: flex;
   margin-top: 60px;
   padding-bottom: 125px;
-  .first-left {
+  .item-east-right {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: end;
     width: 50%;
     &__category {
       text-transform: uppercase;
@@ -40,6 +41,7 @@
       margin-bottom: 45px;
     }
     p {
+      text-align: end;
       font-weight: 300;
       font-size: 14px;
       width: 470px;
@@ -83,7 +85,7 @@
       }
     }
   }
-  .first-right {
+  .item-east-left {
     width: 50%;
     display: flex;
     justify-content: center;

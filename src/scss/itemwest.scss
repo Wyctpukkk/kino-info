@@ -1,9 +1,9 @@
-.first-block {
+.item-west-block {
   position: relative;
   display: flex;
   margin-top: 60px;
   padding-bottom: 125px;
-  .first-left {
+  .item-west-left {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +83,7 @@
       }
     }
   }
-  .first-right {
+  .item-west-right {
     width: 50%;
     display: flex;
     justify-content: center;
