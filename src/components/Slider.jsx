@@ -1,43 +1,45 @@
-import React from 'react';
-import slider from '../assets/img/slider.jpg';
+import React, { useState } from 'react';
 import leftArrow from '../assets/img/left_arrow.svg';
 import rightArrow from '../assets/img/right_arrow.svg';
 
-export const Slider = () => {
+export const Slider = (obj) => {
+  const [margin, setMargin] = useState(-960);
+
+  const marginSlider = (type) => {
+    if (type === 'left') {
+      setMargin(margin - 240);
+    } else if (type === 'right') {
+      setMargin(margin + 240);
+    }
+    console.log(margin);
+  };
+
   return (
-    <section className="slider">
+    <div className="title">
       <h2 className="slider__title">Popular serials</h2>
-      <article className="slider__block">
-        <button className="slider__back">
-          <img src={leftArrow} />
+      <section className="slider">
+        <button className="slider__back" onClick={() => marginSlider('left')}>
+          <img src={leftArrow} alt="arrow" />
         </button>
-        <ul className="slider__list">
-          <li className="slider__item first">
-            <img className="slider__content" src={slider} />
-          </li>
-          <li className="slider__item">
-            <img className="slider__content" src={slider} />
-          </li>
-          <li className="slider__item">
-            <img className="slider__content" src={slider} />
-          </li>
-          <li className="slider__item">
-            <img className="slider__content" src={slider} />
-          </li>
-          <li className="slider__item">
-            <img className="slider__content" src={slider} />
-          </li>
-          <li className="slider__item">
-            <img className="slider__content" src={slider} />
-          </li>
-          <li className="slider__item last">
-            <img className="slider__content" src={slider} />
-          </li>
-        </ul>
-        <button className="slider__next">
-          <img src={rightArrow} />
+        <article className="slider__block">
+          <ul className="slider__list" style={{ marginLeft: `${margin}px` }}>
+            {obj.obj.map((obj, index) => {
+              return (
+                <li className="slider__item" key={obj.id}>
+                  <img
+                    className="slider__content"
+                    src={obj.poster.url}
+                    alt="poster"
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        </article>
+        <button className="slider__next" onClick={() => marginSlider('right')}>
+          <img src={rightArrow} alt="arrow" />
         </button>
-      </article>
-    </section>
+      </section>
+    </div>
   );
 };

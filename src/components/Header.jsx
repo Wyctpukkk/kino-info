@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo.svg';
 import search from '../assets/img/search.svg';
 
@@ -12,19 +13,29 @@ export const Header = () => {
         </div>
         <ul className="header__navlist">
           <li className="header__item">
-            <a className="header__text">Homepage</a>
+            <Link to="/" className="header__link">
+              Homepage
+            </Link>
           </li>
           <li className="header__item">
-            <a className="header__text">Serials</a>
+            <Link to="/" className="header__link">
+              Serials
+            </Link>
           </li>
           <li className="header__item">
-            <a className="header__text">Movies</a>
+            <Link to="/" className="header__link">
+              Movies
+            </Link>
           </li>
           <li className="header__item">
-            <a className="header__text">Favorites</a>
+            <Link to="/" className="header__link">
+              Favorites
+            </Link>
           </li>
           <li className="header__item">
-            <a className="header__text">My List</a>
+            <Link to="/" className="header__link">
+              My List
+            </Link>
           </li>
         </ul>
         <div className="input">
