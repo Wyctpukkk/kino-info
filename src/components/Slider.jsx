@@ -3,12 +3,12 @@ import leftArrow from '../assets/img/left_arrow.svg';
 import rightArrow from '../assets/img/right_arrow.svg';
 
 export const Slider = (obj) => {
-  const [margin, setMargin] = useState(-960);
+  const [margin, setMargin] = useState(-720);
 
   const marginSlider = (type) => {
-    if (type === 'left') {
+    if (type === 'left' && margin > -1200) {
       setMargin(margin - 240);
-    } else if (type === 'right') {
+    } else if (type === 'right' && margin < 0) {
       setMargin(margin + 240);
     }
     console.log(margin);
@@ -27,6 +27,7 @@ export const Slider = (obj) => {
               return (
                 <li className="slider__item" key={obj.id}>
                   <img
+                    id={obj.id}
                     className="slider__content"
                     src={obj.poster.url}
                     alt="poster"
