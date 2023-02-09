@@ -29,7 +29,7 @@ export const Slider = (obj) => {
                   <img
                     id={obj.id}
                     className="slider__content"
-                    src={obj.poster.url}
+                    src={obj.posterUrl}
                     alt="poster"
                   />
                 </li>
